@@ -45,7 +45,7 @@ const PatientLayout = () => {
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="sticky top-0 z-50 bg-card border-b shadow-sm">
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3 sm:py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
@@ -62,10 +62,10 @@ const PatientLayout = () => {
                   <MenuContent />
                 </SheetContent>
               </Sheet>
-              <h1 className="text-xl font-bold">CliniSys</h1>
+              <h1 className="text-lg sm:text-xl font-bold">CliniSys</h1>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 sm:gap-4">
               <div className="hidden md:flex items-center gap-2">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={user?.avatar} />
@@ -99,7 +99,7 @@ const PatientLayout = () => {
       </header>
 
       {/* Main content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-6 sm:py-8">
         <Outlet />
       </main>
     </div>

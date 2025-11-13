@@ -57,10 +57,10 @@ const PatientHistory = () => {
   };
 
   return (
-    <div className="space-y-6 fade-in max-w-4xl">
+    <div className="space-y-4 sm:space-y-6 fade-in max-w-5xl">
       <div>
-        <h1 className="text-3xl font-bold">Histórico e Exames</h1>
-        <p className="text-muted-foreground mt-1">
+        <h1 className="text-2xl sm:text-3xl font-bold">Histórico e Exames</h1>
+        <p className="text-sm sm:text-base text-muted-foreground mt-1">
           Consulte seu histórico médico e resultados de exames
         </p>
       </div>

@@ -33,15 +33,25 @@ const AdminLayout = () => {
   ];
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen bg-background overflow-hidden">
+      {/* Mobile Overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-background/80 backdrop-blur-sm z-40 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+      
       {/* Sidebar */}
       <aside
         className={`${
-          sidebarOpen ? 'w-64' : 'w-20'
-        } bg-sidebar text-sidebar-foreground transition-all duration-300 flex flex-col`}
+          sidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
+        } ${
+          sidebarOpen ? 'w-64' : 'lg:w-20'
+        } fixed lg:relative z-50 h-full bg-sidebar text-sidebar-foreground transition-all duration-300 flex flex-col`}
       >
         <div className="p-4 flex items-center justify-between border-b border-sidebar-border">
-          {sidebarOpen && (
+          {(sidebarOpen || window.innerWidth >= 1024) && (
             <h1 className="text-xl font-bold">CliniSys</h1>
           )}
           <Button
@@ -93,8 +103,19 @@ const AdminLayout = () => {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 overflow-auto">
-        <div className="p-8">
+      <main className="flex-1 overflow-auto w-full">
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden sticky top-0 z-30 bg-background border-b border-border p-4">
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setSidebarOpen(true)}
+          >
+            <Menu className="w-5 h-5" />
+          </Button>
+        </div>
+        
+        <div className="p-4 sm:p-6 lg:p-8">
           <Outlet />
         </div>
       </main>

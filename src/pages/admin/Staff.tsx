@@ -90,11 +90,11 @@ const Staff = () => {
   };
 
   return (
-    <div className="space-y-6 fade-in">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 fade-in">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Profissionais</h1>
-          <p className="text-muted-foreground mt-1">Gerenciar médicos e enfermeiros</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">Profissionais</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">Gerenciar médicos e enfermeiros</p>
         </div>
         <NewStaffDialog onSuccess={fetchStaff} />
       </div>
@@ -110,7 +110,7 @@ const Staff = () => {
           </div>
         </div>
       ) : (
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
           {staff.map((staffMember) => (
           <Card key={staffMember.id} className="card-hover">
             <CardHeader>
@@ -153,7 +153,7 @@ const Staff = () => {
                   <span className="text-muted-foreground">{staffMember.phone || '-'}</span>
                 </div>
               </div>
-              <div className="flex gap-2 pt-2">
+              <div className="flex flex-col sm:flex-row gap-2 pt-2">
                 <Button size="sm" variant="outline" className="flex-1">
                   Ver Agenda
                 </Button>

@@ -132,14 +132,14 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="space-y-8 fade-in">
+    <div className="space-y-4 sm:space-y-6 lg:space-y-8 fade-in">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Dashboard</h1>
-        <p className="text-muted-foreground mt-1">Visão geral do sistema</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Dashboard</h1>
+        <p className="text-sm sm:text-base text-muted-foreground mt-1">Visão geral do sistema</p>
       </div>
 
       {/* Stats Grid */}
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {statsData.map((stat) => (
           <Card key={stat.title} className="card-hover">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
