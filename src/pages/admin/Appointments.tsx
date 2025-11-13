@@ -135,16 +135,16 @@ const Appointments = () => {
   };
 
   return (
-    <div className="space-y-6 fade-in">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 fade-in">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Agendamentos</h1>
-          <p className="text-muted-foreground mt-1">Gerenciar consultas e exames</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">Agendamentos</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">Gerenciar consultas e exames</p>
         </div>
         <NewAppointmentDialog onSuccess={fetchAppointments} />
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 lg:grid-cols-3">
         {/* Calendar */}
         <Card className="lg:col-span-1">
           <CardHeader>

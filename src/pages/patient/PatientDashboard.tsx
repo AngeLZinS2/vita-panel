@@ -90,14 +90,14 @@ const PatientDashboard = () => {
   };
 
   return (
-    <div className="space-y-8 fade-in">
+    <div className="space-y-6 sm:space-y-8 fade-in">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Bem-vindo, {user?.name}</h1>
-        <p className="text-muted-foreground mt-1">Visão geral do seu perfil</p>
+        <h1 className="text-2xl sm:text-3xl font-bold text-foreground">Bem-vindo, {user?.name}</h1>
+        <p className="text-sm sm:text-base text-muted-foreground mt-1">Visão geral do seu perfil</p>
       </div>
 
       {/* Stats */}
-      <div className="grid gap-6 md:grid-cols-3">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">

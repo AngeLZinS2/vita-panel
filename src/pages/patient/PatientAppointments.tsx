@@ -166,7 +166,7 @@ const PatientAppointments = () => {
         </div>
 
         {(['confirmed', 'pending', 'scheduled'].includes(appointment.status)) && (
-          <div className="flex gap-2">
+          <div className="flex flex-col sm:flex-row gap-2">
             <Button variant="outline" size="sm" className="flex-1">
               Remarcar
             </Button>
@@ -181,15 +181,16 @@ const PatientAppointments = () => {
   );
 
   return (
-    <div className="space-y-6 fade-in max-w-4xl">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 fade-in max-w-5xl">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Meus Agendamentos</h1>
-          <p className="text-muted-foreground mt-1">Consultas e exames</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">Meus Agendamentos</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">Consultas e exames</p>
         </div>
-        <Button className="gap-2">
+        <Button className="gap-2 w-full sm:w-auto">
           <Plus className="w-4 h-4" />
-          Nova Consulta
+          <span className="hidden sm:inline">Nova Consulta</span>
+          <span className="sm:hidden">Agendar</span>
         </Button>
       </div>
 

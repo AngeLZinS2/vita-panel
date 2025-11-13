@@ -43,15 +43,15 @@ const PatientProfile = () => {
   };
 
   return (
-    <div className="space-y-6 fade-in max-w-3xl">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 fade-in max-w-4xl">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Meu Perfil</h1>
-          <p className="text-muted-foreground mt-1">Gerencie suas informações pessoais</p>
+          <h1 className="text-2xl sm:text-3xl font-bold">Meu Perfil</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">Gerencie suas informações pessoais</p>
         </div>
         <Button
           onClick={() => (isEditing ? handleSave() : setIsEditing(true))}
-          className="gap-2"
+          className="gap-2 w-full sm:w-auto"
         >
           {isEditing ? 'Salvar' : <><Edit className="w-4 h-4" /> Editar</>}
         </Button>
@@ -59,19 +59,19 @@ const PatientProfile = () => {
 
       <Card>
         <CardHeader>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-4">
             <Avatar className="w-20 h-20">
               <AvatarImage src={user?.avatar} />
               <AvatarFallback className="text-2xl">{user?.name.charAt(0)}</AvatarFallback>
             </Avatar>
-            <div>
-              <CardTitle className="text-2xl">{user?.name}</CardTitle>
-              <p className="text-muted-foreground">Paciente</p>
+            <div className="text-center sm:text-left">
+              <CardTitle className="text-xl sm:text-2xl">{user?.name}</CardTitle>
+              <p className="text-sm sm:text-base text-muted-foreground">Paciente</p>
             </div>
           </div>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2">
+        <CardContent className="space-y-4 sm:space-y-6">
+          <div className="grid gap-4 sm:gap-6 grid-cols-1 md:grid-cols-2">
             <div className="space-y-2">
               <Label htmlFor="name" className="flex items-center gap-2">
                 <User className="w-4 h-4" />

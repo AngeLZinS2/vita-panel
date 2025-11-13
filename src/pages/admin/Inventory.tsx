@@ -64,11 +64,11 @@ const Inventory = () => {
   ).length;
 
   return (
-    <div className="space-y-6 fade-in">
-      <div className="flex items-center justify-between">
+    <div className="space-y-4 sm:space-y-6 fade-in">
+      <div className="flex flex-col sm:flex-row gap-4 sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Almoxarifado</h1>
-          <p className="text-muted-foreground mt-1">
+          <h1 className="text-2xl sm:text-3xl font-bold">Almoxarifado</h1>
+          <p className="text-sm sm:text-base text-muted-foreground mt-1">
             Gerenciar estoque de materiais e medicamentos
           </p>
         </div>
@@ -76,7 +76,7 @@ const Inventory = () => {
       </div>
 
       {/* Stats */}
-      <div className="grid gap-6 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2">
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
             <CardTitle className="text-sm font-medium text-muted-foreground">
