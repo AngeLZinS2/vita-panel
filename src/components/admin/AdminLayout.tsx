@@ -1,0 +1,105 @@
+import { Outlet, useNavigate } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
+import { 
+  LayoutDashboard, 
+  Users, 
+  Calendar, 
+  UserCog, 
+  Package, 
+  LogOut,
+  Menu
+} from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { NavLink } from '@/components/NavLink';
+import { useState } from 'react';
+
+const AdminLayout = () => {
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
+  const handleLogout = () => {
+    logout();
+    navigate('/login');
+  };
+
+  const menuItems = [
+    { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
+    { icon: Users, label: 'Pacientes', path: '/admin/patients' },
+    { icon: Calendar, label: 'Agendamentos', path: '/admin/appointments' },
+    { icon: UserCog, label: 'Profissionais', path: '/admin/staff' },
+    { icon: Package, label: 'Almoxarifado', path: '/admin/inventory' },
+  ];
+
+  return (
+    <div className="flex h-screen bg-background">
+      {/* Sidebar */}
+      <aside
+        className={`${
+          sidebarOpen ? 'w-64' : 'w-20'
+        } bg-sidebar text-sidebar-foreground transition-all duration-300 flex flex-col`}
+      >
+        <div className="p-4 flex items-center justify-between border-b border-sidebar-border">
+          {sidebarOpen && (
+            <h1 className="text-xl font-bold">CliniSys</h1>
+          )}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="text-sidebar-foreground hover:bg-sidebar-accent"
+          >
+            <Menu className="w-5 h-5" />
+          </Button>
+        </div>
+
+        <nav className="flex-1 p-4 space-y-2">
+          {menuItems.map((item) => (
+            <NavLink
+              key={item.path}
+              to={item.path}
+              className="flex items-center gap-3 px-3 py-2 rounded-lg text-sidebar-foreground/80 hover:bg-sidebar-accent hover:text-sidebar-foreground transition-colors"
+              activeClassName="bg-sidebar-accent text-sidebar-foreground font-medium"
+            >
+              <item.icon className="w-5 h-5 flex-shrink-0" />
+              {sidebarOpen && <span>{item.label}</span>}
+            </NavLink>
+          ))}
+        </nav>
+
+        <div className="p-4 border-t border-sidebar-border">
+          <div className="flex items-center gap-3 mb-3">
+            <Avatar>
+              <AvatarImage src={user?.avatar} />
+              <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>
+            </Avatar>
+            {sidebarOpen && (
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium truncate">{user?.name}</p>
+                <p className="text-xs text-sidebar-foreground/60 truncate">{user?.email}</p>
+              </div>
+            )}
+          </div>
+          <Button
+            variant="ghost"
+            onClick={handleLogout}
+            className="w-full justify-start text-sidebar-foreground hover:bg-sidebar-accent"
+          >
+            <LogOut className="w-4 h-4 mr-2" />
+            {sidebarOpen && 'Sair'}
+          </Button>
+        </div>
+      </aside>
+
+      {/* Main content */}
+      <main className="flex-1 overflow-auto">
+        <div className="p-8">
+          <Outlet />
+        </div>
+      </main>
+    </div>
+  );
+};
+
+export default AdminLayout;
