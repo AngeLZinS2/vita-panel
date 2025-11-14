@@ -12,6 +12,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { NavLink } from '@/components/NavLink';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useState } from 'react';
 
 const AdminLayout = () => {
@@ -78,8 +79,8 @@ const AdminLayout = () => {
           ))}
         </nav>
 
-        <div className="p-4 border-t border-sidebar-border">
-          <div className="flex items-center gap-3 mb-3">
+        <div className="p-4 border-t border-sidebar-border space-y-3">
+          <div className="flex items-center gap-3">
             <Avatar>
               <AvatarImage src={user?.avatar} />
               <AvatarFallback>{user?.name.charAt(0)}</AvatarFallback>
@@ -91,21 +92,34 @@ const AdminLayout = () => {
               </div>
             )}
           </div>
-          <Button
-            variant="ghost"
-            onClick={handleLogout}
-            className="w-full justify-start text-sidebar-foreground hover:bg-sidebar-accent"
-          >
-            <LogOut className="w-4 h-4 mr-2" />
-            {sidebarOpen && 'Sair'}
-          </Button>
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeToggle />
+            <Button
+              variant="ghost"
+              onClick={handleLogout}
+              className="flex-1 justify-start text-sidebar-foreground hover:bg-sidebar-accent"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              {sidebarOpen && 'Sair'}
+            </Button>
+          </div>
+          <div className="lg:hidden">
+            <Button
+              variant="ghost"
+              onClick={handleLogout}
+              className="w-full justify-start text-sidebar-foreground hover:bg-sidebar-accent"
+            >
+              <LogOut className="w-4 h-4 mr-2" />
+              {sidebarOpen && 'Sair'}
+            </Button>
+          </div>
         </div>
       </aside>
 
       {/* Main content */}
       <main className="flex-1 overflow-auto w-full">
         {/* Mobile Menu Button */}
-        <div className="lg:hidden sticky top-0 z-30 bg-background border-b border-border p-4">
+        <div className="lg:hidden sticky top-0 z-30 bg-background border-b border-border p-4 flex items-center justify-between">
           <Button
             variant="outline"
             size="icon"
@@ -113,6 +127,7 @@ const AdminLayout = () => {
           >
             <Menu className="w-5 h-5" />
           </Button>
+          <ThemeToggle />
         </div>
         
         <div className="p-4 sm:p-6 lg:p-8">
