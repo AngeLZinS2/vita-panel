@@ -6,6 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { NavLink } from '@/components/NavLink';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { NotificationDropdown } from './NotificationDropdown';
 
 const PatientLayout = () => {
   const { user, logout } = useAuth();
@@ -66,6 +67,7 @@ const PatientLayout = () => {
             </div>
 
             <div className="flex items-center gap-2 sm:gap-4">
+              <NotificationDropdown />
               <div className="hidden md:flex items-center gap-2">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={user?.avatar} />
