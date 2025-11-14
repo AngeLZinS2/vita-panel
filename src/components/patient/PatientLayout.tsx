@@ -4,6 +4,7 @@ import { Calendar, FileText, User, LogOut, Menu, LayoutDashboard } from 'lucide-
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { NavLink } from '@/components/NavLink';
+import { ThemeToggle } from '@/components/ThemeToggle';
 import { useState } from 'react';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { NotificationDropdown } from './NotificationDropdown';
@@ -68,6 +69,7 @@ const PatientLayout = () => {
 
             <div className="flex items-center gap-2 sm:gap-4">
               <NotificationDropdown />
+              <ThemeToggle />
               <div className="hidden md:flex items-center gap-2">
                 <Avatar className="w-8 h-8">
                   <AvatarImage src={user?.avatar} />
