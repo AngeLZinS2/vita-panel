@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AdminLayout from "./components/admin/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
+import Analytics from "./pages/admin/Analytics";
 import Patients from "./pages/admin/Patients";
 import Appointments from "./pages/admin/Appointments";
 import Staff from "./pages/admin/Staff";
@@ -35,6 +36,7 @@ const AppRoutes = () => (
     }>
       <Route index element={<Navigate to="/admin/dashboard" replace />} />
       <Route path="dashboard" element={<Dashboard />} />
+      <Route path="analytics" element={<Analytics />} />
       <Route path="patients" element={<Patients />} />
       <Route path="appointments" element={<Appointments />} />
       <Route path="staff" element={<Staff />} />
