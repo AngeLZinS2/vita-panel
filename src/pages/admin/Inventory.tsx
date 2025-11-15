@@ -347,20 +347,6 @@ const StockMovementDialog = ({ item, type, open, onOpenChange, onSuccess }) => {
         throw updateError;
       }
 
-      const { error: logError } = await supabase
-        .from('inventory_movements')
-        .insert({
-          item_id: item.id,
-          item_name: item.name,
-          type: type,
-          quantity: quantity,
-          reason: reason,
-        });
-
-      if (logError) {
-        console.warn("Erro ao registrar movimentação:", logError);
-      }
-
       onSuccess();
       onOpenChange(false);
 

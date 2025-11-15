@@ -7,7 +7,8 @@ import {
   UserCog, 
   Package, 
   LogOut,
-  Menu
+  Menu,
+  BarChart3
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
@@ -27,6 +28,7 @@ const AdminLayout = () => {
 
   const menuItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/admin/dashboard' },
+    { icon: BarChart3, label: 'Analytics', path: '/admin/analytics' },
     { icon: Users, label: 'Pacientes', path: '/admin/patients' },
     { icon: Calendar, label: 'Agendamentos', path: '/admin/appointments' },
     { icon: UserCog, label: 'Profissionais', path: '/admin/staff' },
